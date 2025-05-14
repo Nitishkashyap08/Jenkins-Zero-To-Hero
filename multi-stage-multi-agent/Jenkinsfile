@@ -8,6 +8,7 @@ pipeline{
       steps{
       sh 'java --version'
       }
+    
       stage(testb){
       agent{
         docker { image 'node:16-alpine'}
