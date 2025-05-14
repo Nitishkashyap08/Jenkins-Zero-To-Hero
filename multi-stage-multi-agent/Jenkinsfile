@@ -1,24 +1,22 @@
-pipeline{
+pipeline {
   agent any
-  stages{
-    stage(test){
-      agent{
-        docker { image 'mvn:3.8.3-adoptopenjdk11-'}
+  stages {
+    stage('test') {
+      agent {
+        docker { image 'maven:3.8.3-adoptopenjdk11' } // Corrected image name
       }
-      steps{
-      sh 'java --version'
+      steps {
+        sh 'java --version'
       }
-    
-      stage(testb){
-      agent{
-        docker { image 'node:16-alpine'}
+    }
+
+    stage('testb') {
+      agent {
+        docker { image 'node:16-alpine' }
       }
-      steps{
+      steps {
         sh 'node --version'
-      }
       }
     }
   }
 }
-
-   
